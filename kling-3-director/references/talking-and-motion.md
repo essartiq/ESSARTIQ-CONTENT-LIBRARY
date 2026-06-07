@@ -2,7 +2,7 @@
 
 Two distinct failure modes, two distinct fixes. The single most important principle: **do not make a character talk while moving fast unless absolutely necessary.** Generate the action shot and the dialogue shot separately, then edit them together. Both problems come from the model trying to solve too many variables in one shot at once.
 
-When the user asks for a talking character OR a moving character, adapt the base prompt formula (from SKILL.md) using the relevant section below. Diagnose which problem applies, then layer in the stability instructions and the targeted negative prompt.
+When the user asks for a talking character OR a moving character, adapt the base prompt formula (from SKILL.md) using the relevant section below. Diagnose which problem applies, then layer in the stability instructions and the targeted negative terms.
 
 ---
 
@@ -33,7 +33,7 @@ Kling 3.0 added native audio, multi-character coreference, multilingual dialogue
 [Expression]
 [Camera]
 [Lighting]
-[Negative prompt]
+[No... negative terms]
 ```
 
 **Single speaker:**
@@ -41,7 +41,7 @@ Kling 3.0 added native audio, multi-character coreference, multilingual dialogue
 Close-up shot of @CharacterA facing the camera. @CharacterA keeps her head mostly still and speaks calmly with small, natural mouth movements. Her eyes blink subtly and her expression stays relaxed and confident.
 @CharacterA, calm clear voice: "Welcome back. Today I want to show you something simple but powerful."
 Camera: locked-off close-up, no zoom, no pan, no orbit. Soft even lighting on the face. Preserve the exact facial identity, lip shape, teeth, jawline, hairstyle, skin texture, and outfit.
-Negative prompt: mouth morphing, melting lips, warped teeth, changing face, exaggerated jaw movement, unstable cheeks, distorted tongue, face flicker, head wobble, duplicate mouth, mismatched lip sync.
+No mouth morphing, no melting lips, no warped teeth, no changing face, no exaggerated jaw movement, no unstable cheeks, no distorted tongue, no face flicker, no head wobble, no duplicate mouth, no mismatched lip sync.
 ```
 
 **Two-character dialogue** — use unique labels, a visual anchor per speaker, tone tags, and timing words ("then", "immediately") so the model doesn't merge speakers:
@@ -52,7 +52,7 @@ Medium close-up dialogue scene in a quiet studio.
 Then the camera cuts to [Character B: man in black shirt] on the right. He nods once before speaking.
 [Character B, low thoughtful voice]: "Yes, but the logo needs more space."
 Camera: simple shot-reverse-shot, no fast camera movement. Both characters remain seated and stable while speaking. Natural lip sync, small mouth movements, controlled facial expressions.
-Negative prompt: wrong speaker, merged voices, mouth morphing, face morphing, warped teeth, unstable lips, exaggerated expression, duplicate faces, mismatched lip sync.
+No wrong speaker, no merged voices, no mouth morphing, no face morphing, no warped teeth, no unstable lips, no exaggerated expression, no duplicate faces, no mismatched lip sync.
 ```
 
 ### Dialogue length — keep it short
@@ -69,14 +69,14 @@ Reference images should be: front-facing + a 3/4 angle, neutral/relaxed mouth, g
 
 ### Mouth-stability vocabulary
 - Helpful phrases: small natural mouth movements, subtle lip movement, stable jawline, relaxed cheeks, natural lip sync, clear syllable timing, controlled facial expression, minimal head movement, head remains steady, front-facing close-up, locked-off camera, soft even face lighting.
-- Negative prompt: mouth morphing, melting lips, warped teeth, changing mouth shape, exaggerated jaw motion, unstable cheeks, face flicker, mismatched lip sync, duplicate mouth, distorted tongue, identity drift, head wobble.
+- Negative terms to use: no mouth morphing, no melting lips, no warped teeth, no changing mouth shape, no exaggerated jaw motion, no unstable cheeks, no face flicker, no mismatched lip sync, no duplicate mouth, no distorted tongue, no identity drift, no head wobble.
 - Avoid asking for: very emotional speech, dramatic screaming, talking very fast, huge smile while talking, crying/laughing while speaking, wild expression.
 
 ### Default safe talking prompt
 ```
 Close-up shot of @CharacterA facing the camera. @CharacterA speaks one short sentence with calm, natural lip movement. The head remains mostly still, with subtle blinking and a relaxed expression. The camera is locked-off, no zoom, no pan, no orbit. Soft even lighting clearly illuminates the face. Preserve the exact facial identity, lips, teeth, jawline, hairstyle, skin tone, and outfit.
 @CharacterA, calm clear voice: "Your dialogue line here."
-Negative prompt: mouth morphing, melting lips, warped teeth, changing face, exaggerated jaw movement, unstable cheeks, distorted tongue, face flicker, head wobble, mismatched lip sync, duplicate mouth.
+No mouth morphing, no melting lips, no warped teeth, no changing face, no exaggerated jaw movement, no unstable cheeks, no distorted tongue, no face flicker, no head wobble, no mismatched lip sync, no duplicate mouth.
 ```
 
 ---
@@ -106,20 +106,20 @@ Prompt: slightly slowed motion, controlled slow motion, readable athletic motion
 ### Fast-motion prompt template
 ```
 Wide shot of [subject] performing one clear fast action: [specific action]. The camera remains [locked-off / smooth side tracking / smooth backward tracking]. The subject's body stays anatomically consistent, with natural limb motion and realistic physics. The background moves minimally. Use slight motion blur, not distortion. Keep the action readable and clean.
-Negative prompt: warped limbs, melting body, stretched arms, twisted legs, duplicate body, broken anatomy, jitter, frame tearing, unstable camera, motion smearing, distorted face, flickering clothing.
+No warped limbs, no melting body, no stretched arms, no twisted legs, no duplicate body, no broken anatomy, no jitter, no frame tearing, no unstable camera, no motion smearing, no distorted face, no flickering clothing.
 ```
 
 ### Image-to-video for fast motion
 The image already supplies the scene, so prompt movement only (Subject + Movement, Background + Movement):
 ```
 The person in the image performs one controlled movement: [specific movement]. The camera remains stable. Preserve the person's face, body proportions, clothing, and original scene. Movement is smooth and physically realistic, with slight natural motion blur.
-Negative prompt: twisted limbs, warped face, duplicate body, stretched clothing, unstable background, heavy motion blur, jitter.
+No twisted limbs, no warped face, no duplicate body, no stretched clothing, no unstable background, no heavy motion blur, no jitter.
 ```
 
 ### Default safe fast-motion prompt
 ```
 Wide full-body shot of @CharacterA performing one clear fast action: [describe action]. The full body remains visible from head to feet. The camera is locked-off / smoothly tracking, with no sudden rotation. The motion is energetic but controlled, physically realistic, and slightly slowed so the body silhouette stays readable. Preserve the character's face, body proportions, outfit, and anatomy.
-Negative prompt: warped limbs, twisted legs, extra arms, duplicate body, rubber body, stretched torso, unstable face, motion smearing, jitter, frame tearing, shaky camera, distorted clothing.
+No warped limbs, no twisted legs, no extra arms, no duplicate body, no rubber body, no stretched torso, no unstable face, no motion smearing, no jitter, no frame tearing, no shaky camera, no distorted clothing.
 ```
 
 ---
@@ -143,6 +143,6 @@ Use Professional / high-quality mode for faces, dialogue, product, or commercial
 | Background warps | Fast subject + fast background | Simplify background movement |
 
 ## Bottom line
-- Talking: Elements + voice binding + close-up/medium close-up + short calm dialogue + locked camera + stable head + targeted mouth negative prompts.
+- Talking: Elements + voice binding + close-up/medium close-up + short calm dialogue + locked camera + stable head + targeted "No..." terms for mouth artifacts.
 - Fast motion: one action per shot + wide framing + stable camera + controlled slow motion + minimal background motion + multi-shot sequencing.
 - Never combine the two in one shot unless unavoidable — split them and edit together.
