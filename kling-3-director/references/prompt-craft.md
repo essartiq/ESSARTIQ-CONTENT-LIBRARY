@@ -17,7 +17,7 @@ Structure every full prompt in this order:
 4. Camera movement
 5. Lighting / style
 6. Audio / dialogue
-7. Negative prompt (relevant artifacts only)
+7. "No..." negative terms (relevant artifacts only)
 
 ## Constraint words over aesthetic words
 Aesthetic words ("cinematic, premium, beautiful, dramatic") shape the look; **constraint words make the model behave** and matter more: locked-off camera, full body visible, logo remains centered, one speaker per shot, head remains mostly still, camera moves slowly, product does not change shape, same outfit across all shots. Always include constraints, not just adjectives.
@@ -72,15 +72,18 @@ Only attempt a transformation if it's the whole shot, and strip all other comple
 ## One impossible thing only
 For surreal work, choose a single impossible element and keep everything else realistic. "A glass perfume bottle floats gently above a marble pedestal; everything else follows realistic physics." Many surreal elements at once become visual noise.
 
-## Category-based negative prompts (use the relevant group only)
-- Product: changed logo, unreadable label, warped packaging, altered product shape, extra products, random text, flickering reflections, melted edges, unstable shadows.
-- Character: changing face, identity drift, distorted eyes, warped teeth, mouth morphing, extra fingers, deformed hands, unstable outfit, duplicate person.
-- Motion: jitter, motion smear, warped limbs, twisted legs, rubber body, frame tearing, broken anatomy, unstable camera.
-- Scene: random background objects, changing location, flickering lighting, inconsistent color palette, unstable architecture, melting walls.
-- Image-to-video: changing original composition, distorted source image, face morphing, warped background, extra objects, unstable camera, loss of detail.
+## Category-based negative terms (use the relevant group only)
+
+Write these inline at the end of your prompt using "No..." phrasing. Pick only the category that fits the shot — don't combine all categories into one block.
+
+- **Product:** No changed logo, no unreadable label, no warped packaging, no altered product shape, no extra products, no random text, no flickering reflections, no melted edges, no unstable shadows.
+- **Character:** No changing face, no identity drift, no distorted eyes, no warped teeth, no mouth morphing, no extra fingers, no deformed hands, no unstable outfit, no duplicate person.
+- **Motion:** No jitter, no motion smear, no warped limbs, no twisted legs, no rubber body, no frame tearing, no broken anatomy, no unstable camera.
+- **Scene:** No random background objects, no changing location, no flickering lighting, no inconsistent color palette, no unstable architecture, no melting walls.
+- **Image-to-video:** No changing original composition, no distorted source image, no face morphing, no warped background, no extra objects, no unstable camera, no loss of detail.
 
 ## Iterate one variable at a time
-Don't rewrite everything after a failure. Version up: V1 subject + camera only → V2 add lighting → V3 add environment motion → V4 add audio/dialogue → V5 add negative prompt from observed errors. This isolates the cause.
+Don't rewrite everything after a failure. Version up: V1 subject + camera only → V2 add lighting → V3 add environment motion → V4 add audio/dialogue → V5 add "No..." terms from observed errors. This isolates the cause.
 
 ## Use reference images strategically
 Product → product image; character → Element/reference; logo/text → designed image; fashion → full-body outfit reference; dialogue → clean face reference; action → full-body pose reference. A pure text prompt is weakest exactly when identity matters.
@@ -97,13 +100,13 @@ Beginner-level Kling prompt guides circulate widely online and contain a few pat
 Many guides give a single fixed block to append to every prompt:
 > *no morphing, no flicker, no face distortion, no identity change, no outfit change, no warped anatomy, no extra limbs, no rubbery motion, no teleporting, no broken physics, no CGI look, no cartoon, no unreal reflections, no melting objects, no duplicates …*
 
-**Why it's weak:** it violates the *Iterate one variable at a time* and *failure-targeted negative prompt* rules. A 15-item negative block:
+**Why it's weak:** it violates the *Iterate one variable at a time* and *failure-targeted negative* rules. A 15-item block:
 - Spends prompt budget on artifacts that aren't happening in this shot.
 - Conflicts internally on stylized shoots (e.g. "no CGI look, no cartoon" actively fights a stylized brief).
 - Makes it impossible to tell from a re-roll which negative caused the change.
-- Treats negative prompts as an incantation instead of a diagnostic tool.
+- Treats negative terms as an incantation instead of a diagnostic tool.
 
-**Use instead:** start with the small relevant category (Product / Character / Motion / Scene / Image-to-video) and add specific items as defects appear in generations. The negative prompt should grow shot-by-shot, not arrive fully formed.
+**Use instead:** start with the small relevant category (Product / Character / Motion / Scene / Image-to-video) and add specific items as defects appear in generations. The "No..." terms should grow shot-by-shot, not arrive fully formed.
 
 ### 1-second cuts as a default
 
@@ -150,6 +153,5 @@ Lighting: [specific lighting].
 Continuity:
 Preserve [identity, outfit/product details, color palette, lighting direction, environment].
 
-Negative prompt:
-[only relevant artifacts].
+No [only relevant artifacts from the matching category above].
 ```
