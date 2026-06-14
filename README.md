@@ -7,6 +7,7 @@ A personal library of Claude Skills, references, and prompt systems.
 | Skill | Purpose | Status |
 |-------|---------|--------|
 | [kling-3-director](./kling-3-director) | Production-grade Kling 3.0 video prompts | Active |
+| [cinematic-retro-tv-director](./cinematic-retro-tv-director) | Retro 1960s–1990s TV & cult B-movie image prompts | Active |
 
 ## How I use this library
 
