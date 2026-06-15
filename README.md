@@ -8,6 +8,7 @@ A personal library of Claude Skills, references, and prompt systems.
 |-------|---------|--------|
 | [kling-3-director](./kling-3-director) | Production-grade Kling 3.0 video prompts | Active |
 | [cinematic-retro-tv-director](./cinematic-retro-tv-director) | Retro 1960s–1990s TV & cult B-movie image prompts | Active |
+| [character-cast](./character-cast) | Character-consistency image-prompt system — build a photorealistic character with Character Forge, then generate every angle, body shot, and expression prompt | Active |
 
 ## How I use this library
 
