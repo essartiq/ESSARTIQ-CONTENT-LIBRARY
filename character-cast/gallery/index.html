@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Character Cast — Gallery</title>
+<style>
+  :root { --bg:#0f1115; --panel:#171a21; --ink:#e7e9ee; --muted:#9aa3b2; --line:#262b35; --accent:#7aa2f7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:48px 24px 24px; max-width:1100px; margin:0 auto; text-align:center; }
+  header h1 { margin:0 0 8px; font-size:2rem; letter-spacing:-0.02em; }
+  header p { margin:0; color:var(--muted); }
+  main { max-width:1100px; margin:0 auto; padding:24px; }
+  h2 { font-size:1.1rem; border-bottom:1px solid var(--line); padding-bottom:8px; margin-top:40px; }
+  .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
+  figure { margin:0; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  figure img { display:block; width:100%; height:300px; object-fit:cover; object-position:top center; background:#11131a; }
+  figcaption { padding:10px 12px; font-size:0.85rem; color:var(--muted); }
+  figcaption b { color:var(--ink); }
+  footer { max-width:1100px; margin:40px auto; padding:24px; color:var(--muted); font-size:0.85rem; border-top:1px solid var(--line); }
+  code { background:#11131a; padding:2px 6px; border-radius:5px; font-size:0.85em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Character Cast — Gallery</h1>
+  <p>Example outputs from the prompt system. One character, generated across every angle, body shot, and expression.</p>
+</header>
+<main>
+  <h2>Character Forge — reference sheets</h2>
+  <div class="grid">
+    <figure><img src="images/forge-sheet-a.jpeg" alt="Mode A annotated sheet"><figcaption><b>A</b> — Mode A, annotated sheet</figcaption></figure>
+    <figure><img src="images/forge-grid-b.jpeg" alt="Mode B 8-panel grid"><figcaption><b>B</b> — Mode B, 8-panel grid</figcaption></figure>
+  </div>
+
+  <h2>Angle shots — headshots</h2>
+  <div class="grid">
+    <figure><img src="images/2a-front.jpeg" alt="2A front headshot"><figcaption><b>C</b> — 2A Front headshot</figcaption></figure>
+    <figure><img src="images/2b-threequarter.jpeg" alt="2B three-quarter headshot"><figcaption><b>D</b> — 2B Three-quarter headshot</figcaption></figure>
+    <figure><img src="images/2c-profile.jpeg" alt="2C side profile headshot"><figcaption><b>E</b> — 2C Side profile headshot</figcaption></figure>
+  </div>
+
+  <h2>Angle shots — medium shots</h2>
+  <div class="grid">
+    <figure><img src="images/4a-front.jpeg" alt="4A front waist-up"><figcaption><b>F</b> — 4A Front waist-up</figcaption></figure>
+    <figure><img src="images/4b-threequarter.jpeg" alt="4B three-quarter waist-up"><figcaption><b>G</b> — 4B Three-quarter waist-up</figcaption></figure>
+  </div>
+
+  <h2>Angle shots — full body (with height line)</h2>
+  <div class="grid">
+    <figure><img src="images/5a-front.jpeg" alt="5A front full body"><figcaption><b>H</b> — 5A Front full body</figcaption></figure>
+    <figure><img src="images/5b-back.jpeg" alt="5B back full body"><figcaption><b>I</b> — 5B Back full body</figcaption></figure>
+    <figure><img src="images/5c-threequarter.jpeg" alt="5C three-quarter full body"><figcaption><b>J</b> — 5C Three-quarter full body</figcaption></figure>
+  </div>
+
+  <h2>Angle shots — expressions</h2>
+  <div class="grid">
+    <figure><img src="images/6a-neutral.jpeg" alt="6A neutral"><figcaption><b>K</b> — 6A Neutral</figcaption></figure>
+    <figure><img src="images/6b-warmth.jpeg" alt="6B warmth"><figcaption><b>L</b> — 6B Warmth</figcaption></figure>
+    <figure><img src="images/6c-concern.jpeg" alt="6C concern"><figcaption><b>M</b> — 6C Concern</figcaption></figure>
+    <figure><img src="images/6d-intensity.jpeg" alt="6D intensity"><figcaption><b>N</b> — 6D Intensity</figcaption></figure>
+    <figure><img src="images/6e-sadness.jpeg" alt="6E sadness"><figcaption><b>O</b> — 6E Sadness</figcaption></figure>
+    <figure><img src="images/6f-surprise.jpeg" alt="6F surprise"><figcaption><b>P</b> — 6F Surprise</figcaption></figure>
+  </div>
+</main>
+<footer>
+  All 16 slots (A–P) filled.
+  Enable <strong>GitHub Pages</strong> (Settings -> Pages) to view this live at <code>USERNAME.github.io/character-cast/gallery/</code>.
+</footer>
+</body>
+</html>
