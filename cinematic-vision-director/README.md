@@ -28,8 +28,9 @@ It relies on its own brain. It does not call other skills. All cinematic judgmen
 ## Render Targets
 
 - **Universal** — the model-agnostic three-pillar source of truth, in Classic or Brief Auteur style.
-- **Kling 3.0 / Kling 3 Omni** — five-layer order, native audio, multi-shot, negative prompts, start/end frame.
-- **Seedance 2.0** — six-step formula, 60–100 words, present-tense motion, single aesthetic, constraints tail.
+- **Kling 3.0 / Kling 3 Omni** — six modes (T2V, I2V, Start/End Frame, Element Reference, Multi-Shot Storyboard, Motion Control), Omni Reference Tags (<<<element/image/video/voice>>>), physics keywords, up to 6 shots, native audio, negative prompts.
+- **Seedance 2.0** — five modes (I2V, T2V, First/Last Frame, Multimodal Reference, Video Extension), six-step formula, 60–100 words, @Tag system for character consistency, native audio, constraints tail.
+- **Google Veo 3.1** — five-part formula, native synchronized audio (Dialogue/SFX/Ambient), Ingredients to Video (up to 4 reference images), start/end frame animation, 8-second clips, 4K.
 
 ---
 
@@ -40,9 +41,10 @@ It relies on its own brain. It does not call other skills. All cinematic judgmen
 | `SKILL.md` | The brain — four-layer reasoning, three doctrines, runtime flow. **Edit this one file** for behavior changes. |
 | `kb/index.md` | The KB map — what each KB file is and when the skill reaches for it. |
 | `kb/cinematography.md` | Internalized film grammar; every term paired with its psychological function. Also the color-grade diagnostic key. |
-| `kb/universal.md` | Three-pillar spec, the two Auteur styles, image-to-video reveal skeletons. |
+| `kb/universal.md` | Three-pillar spec, the two Auteur styles, image-to-video skeletons, loopable clip variant, positive framing rule. |
 | `kb/kling-3.md` | Kling 3.0 / Omni render rules. |
 | `kb/seedance-2.md` | Seedance 2.0 render rules. |
+| `kb/veo.md` | Google Veo 3.1 render rules — five-part formula, native audio, Ingredients to Video, start/end frame. |
 
 ---
 
@@ -55,7 +57,7 @@ run the brain (Read → Infer → Craft → Pillars)   [model-agnostic]
    ↓
 present 2–3 Universal directions (each with a vetoable "Read:")
    ↓
-ask: which model? — Kling 3.0/Omni · Seedance 2.0 · Universal
+ask: which model? — Kling 3.0/Omni · Seedance 2.0 · Google Veo 3.1 · Universal
    ↓
 translate chosen direction via the model's kb file
 ```

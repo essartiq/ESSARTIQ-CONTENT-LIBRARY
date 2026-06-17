@@ -4,6 +4,22 @@ Translate the chosen Universal direction into Seedance's six-step formula. Seeda
 
 > Built from current working guidance. Treat specifics as defaults the user may override from their own testing.
 
+---
+
+## Generation Modes
+
+Seedance 2.0 has four distinct input modes. Identify the right one before writing the prompt — the formula adapts per mode.
+
+| Mode | Input | When to use |
+|------|-------|-------------|
+| **Image-to-Video (I2V)** | One still image | Animate a single uploaded frame. The default mode for this skill. |
+| **Text-to-Video (T2V)** | Text only | No image uploaded. Must fully describe subject and world in the prompt. |
+| **First/Last Frame** | Start image + end image | Model interpolates the transition between two locked compositions. Prompt describes the path only. |
+| **Multimodal Reference** | Up to 12 assets (9 images, 3 videos, 3 audio) | Character consistency, style references, camera motion references. Uses the @Tag system. |
+| **Video Extension** | Existing video clip (up to 15 sec) | Continue from the final moments of an existing clip. Prompt describes what happens next. |
+
+---
+
 **Pillars travel here as logic, not labels.** The INTENT / AESTHETIC / EXECUTION reasoning always runs underneath — here it dissolves into the six-step prose: the *why* lives in how Motion and Camera are written (Seedance has no intent slot), the *world* in Subject/Scene/Style, the *play-by-play* in Motion/Camera. The structure is in the thinking, not on the page.
 
 ---
@@ -12,7 +28,7 @@ Translate the chosen Universal direction into Seedance's six-step formula. Seeda
 
 Write in this **exact order**, total length **60–100 words**:
 
-1. **Subject** — who or what is in frame: age, clothing/props, expression, posture. On an uploaded frame, keep this to the continuity essentials the model must hold — do not over-describe what the image already shows.
+1. **Subject** — who or what is in frame: age, clothing/props, expression, posture. On an uploaded frame, keep this to the continuity essentials the model must hold — do not over-describe what the image already shows. When using **Multimodal Reference mode**, tag the character reference here: *"Reference @Image1 for character face and clothing."*
 2. **Motion** — exactly what happens: action, pace, direction, duration. **Present tense.** This is where EXECUTION's action lands.
 3. **Scene** — environment, spatial background, time of day, lighting. Brief; the frame carries most of it. Name the light logic to hold.
 4. **Camera** — shot size (wide/medium/close), angle (low/high/eye-level), lens, and the one movement (slow dolly-in, pan, tracking, static). The single motivated move.
@@ -23,11 +39,74 @@ Write in this **exact order**, total length **60–100 words**:
 
 ## Core Behaviors
 
-- **Word budget is real.** 60–100 words. This forces Restraint structurally — there is no room for a second camera move or a third aesthetic. Compress EXECUTION to one move + 2–3 cues and trust it.
+- **Word budget is real.** 60–100 words. This forces Restraint structurally — there is no room for a second camera move or a third aesthetic. Compress EXECUTION to one move + 2–3 cues and trust it. (@Tag references count toward the budget — keep them short.)
+- **Duration: 4–15 seconds.** Budget beats accordingly. A 4-second clip holds one strong beat. 10–15 seconds can hold a before/after arc. Don't cram a multi-beat sequence into 4 seconds — it starves every beat.
 - **Present tense for Motion.** "She turns and the light catches her face" — not "she will turn." The model reads present action as the through-line.
 - **One aesthetic only.** Step 5 takes a single core look. Stacking grades muddies the output. Name the grade already in the frame and hold it.
 - **Multimodal anchoring.** Seedance is strongest when the prompt rides on its reference inputs (the uploaded image, optional audio, optional video). The text directs; the references hold identity and world. Establish shot structure upfront.
 - **Constraints tail is not optional.** Step 6 is where continuity is protected. It is the Seedance home for the Honesty/continuity guards.
+
+---
+
+## Character Consistency — The @Tag System
+
+When the user uploads an image and wants the character to **remain consistent** throughout the clip (no identity drift, same face, same clothing), use **Multimodal Reference mode** with Seedance's @Tag system.
+
+### How @Tags work
+
+Every uploaded asset gets an automatic tag based on type and upload order:
+
+- **@Image1 – @Image9** — up to 9 reference images
+- **@Video1 – @Video3** — up to 3 reference video clips
+- **@Audio1 – @Audio3** — up to 3 audio references
+
+Tags are assigned in upload order within each type. Reference them explicitly in the prompt — Seedance responds to direction, not inference.
+
+### Tagging in the prompt
+
+State the role of each reference clearly in the Subject step:
+
+- `Reference @Image1 for character face and clothing throughout.`
+- `Use @Image1 for character identity, @Image2 for scene environment.`
+- `Follow @Video1 for camera motion style.`
+- `Match the mood and tone of @Audio1.`
+
+Do not just mention the tag — state its job. The model needs to know what to extract from what.
+
+### Best practices for character consistency
+
+- **2–3 reference images** beat 6+ — tightening references reduces identity drift by ~60%. More images introduce conflicting signals.
+- **Multi-angle references** — front, three-quarter, and side of the same character in the same lighting, clothing, and background. Clean neutral background preferred.
+- **Tight crop on the subject** — crop close to the character; a busy background tells the model the background is intentional.
+- **Lock the hard traits** — name age, hair specifics, and 1–2 key visual features that define recognition. Not everything — just the anchors.
+- **Constraints tail** — always end with: *"Maintain [character name/description] face and clothing consistency without distortion."*
+
+### Prompt structure for character consistency (Multimodal Reference mode)
+
+```
+Reference @Image1 for character face and clothing. [Character] [action in present tense]. [Scene]. [Camera move]. [Aesthetic/grade]. Maintain character face and clothing consistency without distortion, no warping, no subtitles.
+```
+
+**Example:**
+```
+Reference @Image1 for character face and clothing throughout. A woman in a grey sweater exhales, her shoulders dropping, then slowly turns toward the door. Dim apartment at dusk, cool window light, lifted shadows. Medium shot, eye-level, slow telephoto push-in. Cool low-contrast cinematic grade, blue cast. Maintain face and clothing consistency without distortion, no warping, no subtitles.
+```
+
+---
+
+## Native Audio
+
+Seedance 2.0 generates native audio — dialogue, sound effects, and ambient sound — in a single pass alongside the video. Treat audio as a separate concern from the six-step visual formula; weave it into Motion or state it in the Constraints step.
+
+Three categories — use what the scene calls for:
+
+- **Dialogue** — spoken lines: *She says quietly, "I already knew."*
+- **SFX** — specific sound events: *Sound of rain hammering glass. A floorboard creaks.*
+- **Ambient** — continuous background: *Quiet hum of an empty apartment. Distant city traffic.*
+
+In the Macro-State pipeline, audio lives in the `[AUDIO]` tag per beat. In single-paragraph output, fold it naturally into the motion description or add it as a trailing sentence before the constraints tail.
+
+Audio reference via @Audio1 sets mood, rhythm, or voice tone for the clip. State its role explicitly: *"Match the emotional tone of @Audio1."*
 
 ---
 

@@ -22,6 +22,7 @@ Complete control of the audio-visual world. **On an uploaded image this collapse
 How the clip unfolds, second by second. Staging, action, the one motivated camera move, timed beats, and sound where supported.
 - Holds: subject action and direction, the camera move + its motivation, pacing in seconds, sound design (model permitting).
 - Never holds: restated mood or restated grade.
+- **Timing cues belong here.** When duration or speed matters, write it into the prompt text: "over 5 seconds," "slow-motion," "hold 2 seconds then push in." These are not just internal notes — they go in the final prompt.
 
 Order: **Intent → Aesthetic → Execution.** Natural, readable language. A human should visualize the clip before generation.
 
@@ -68,7 +69,23 @@ Reusable structural patterns. The **reveal pattern** is the engine of before/aft
 **Static-subject (motion in world/camera only):**
 `[shot type / camera move], [subject holding still], [what moves around them], [grade]`
 
+**Loopable clip:**
+`[shot type / camera move], [subject + cyclical action], [environment], [grade], loop seamlessly over [X] seconds`
+> e.g. *Static close-up of a rose blooming open and returning — sunlight gleaming on petals, warm grade, loop seamlessly over 5 seconds.*
+
 Use these to structure EXECUTION; they are scaffolding, not a substitute for the four-layer read.
+
+---
+
+## Positive Framing Rule
+
+Across all models, describe what you **want** — never what you don't. Most models ignore "no X" or "don't X" phrasing entirely.
+
+- "Steady camera" — not "no camera shake"
+- "Clear sky" — not "no clouds"
+- "Maintain face consistency" — not "don't distort the face"
+
+When a model has a dedicated negative prompt field (Kling), use it for continuity guards. When it doesn't (Veo 3.1), positive framing is the only guard — write what must hold, not what must be absent. Veo 3.1 uses a trailing exclusion sentence at the end of the prompt.
 
 ---
 
@@ -76,5 +93,6 @@ Use these to structure EXECUTION; they are scaffolding, not a substitute for the
 
 When the user picks a model, the pillars map as follows (detail in each model's KB):
 
-- **Kling 3.0 / Omni** → Scene · Characters · Action · Camera · Audio & Style (five layers). INTENT informs Scene+Action framing; AESTHETIC → Scene/Style + held grade; EXECUTION → Action+Camera+Audio. Negative prompt carries Restraint guards.
+- **Kling 3.0 / Omni** → Scene · Characters · Action · Camera · Audio & Style (five layers). INTENT informs Scene+Action framing; AESTHETIC → Scene/Style + held grade; EXECUTION → Action+Camera+Audio. Element Library (`<<<element_1>>>` tags) for character/voice consistency. Multi-shot storyboard up to 6 shots. Negative prompt carries Restraint and continuity guards.
 - **Seedance 2.0** → Subject · Motion · Scene · Camera · Aesthetics/Style · Constraints (six steps, 60–100 words, present tense). EXECUTION compresses into Motion+Camera; AESTHETIC into Subject/Scene/Style; Constraints tail guards continuity.
+- **Google Veo 3.1** → Cinematography · Subject · Action · Context · Style & Ambiance + Audio block (Dialogue / SFX / Ambient). AESTHETIC describes the world fully in text; optional Ingredients to Video reference images for character/style consistency. Positive framing + trailing exclusion sentence.
