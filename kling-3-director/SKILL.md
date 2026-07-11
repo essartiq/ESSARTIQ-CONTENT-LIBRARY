@@ -34,8 +34,6 @@ The skill states which path to use at the top of every prompt output.
 
 **Elements** are uploaded through the Element Library UI, not described in the prompt. The @tag (@Tom, @Jane) references the uploaded element. Up to 7 elements/reference images (or up to 4 if a video reference is included), each @tag costs 37 characters. Prompt budget: 2,500 characters total. Elements can also be created from a 3–8s video clip of a character, which extracts both appearance and voice — binding a consistent voice to the Element for dialogue shots.
 
-Full UI details in `references/ui-and-workflow.md`.
-
 ## Step 1 — Open with a direction question
 
 Before drafting any prompt, lead with ONE question about creative direction.
@@ -298,8 +296,7 @@ kling-3-director/
     ├── prompt-craft.md                   # 20 craft rules, master template, negative-term catalogs
     ├── camera-and-multishot.md           # Camera glossary, rigs, impossible moves, multi-shot templates
     ├── talking-and-motion.md             # Talking-mouth stabilization + fast-motion fixes
-    ├── product-element-guide.md          # Logo preservation, packshots, orbits, multi-shot product ads
-    └── ui-and-workflow.md                # UI layout, where to paste, negative terms, element upload, limits
+    └── product-element-guide.md          # Logo preservation, packshots, orbits, multi-shot product ads
 ```
 
 Reference files load **on demand** — Claude reads them only when the request type warrants it.
