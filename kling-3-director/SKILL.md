@@ -156,6 +156,7 @@ No [identity drift, warping, unwanted changes].
 - **Colorimetry lock** — "Preserve the color grading and atmosphere of the first frame."
 - **Identity lock** (people) — "Preserve @CharacterA's exact face, hairstyle, expression, and outfit."
 - **Identity lock** (product) — "Preserve the exact product shape, logo, label, color, material."
+- **Lighting cue** — add a short style/lighting keyword alongside the preserve line (e.g., "warm sodium streetlight tone, soft contrast") to reduce drift once motion starts.
 
 ### Elements (reference-based)
 
