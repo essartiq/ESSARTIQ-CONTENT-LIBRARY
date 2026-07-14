@@ -16,12 +16,13 @@ Kling 3.0 added native audio, multi-character coreference, multilingual dialogue
 
 1. Create or upload a clean character reference.
 2. Use an Element / character reference.
-3. Bind the voice if available (3.0 Omni: a 3–8s speaking video, or multi-angle images + 5–30s of clean audio; minimum ~3s of audio).
-4. Use a close-up or medium close-up.
-5. Keep the head mostly stable.
-6. Use short dialogue.
-7. Avoid strong facial expressions while speaking.
-8. Avoid fast camera movement during dialogue.
+3. Turn on the "Bind Subject to Enhance Consistency" toggle when using the Element — this locks facial structure, hairstyle, and clothing texture across shots and camera moves.
+4. Bind the voice if available (3.0 Omni: a 3–8s speaking video, or multi-angle images + 5–30s of clean audio; minimum ~3s of audio).
+5. Use a close-up or medium close-up.
+6. Keep the head mostly stable.
+7. Use short dialogue.
+8. Avoid strong facial expressions while speaking.
+9. Avoid fast camera movement during dialogue.
 
 ### Talking-character prompt structure
 
@@ -65,7 +66,10 @@ Fewer mouth shapes per continuous motion = cleaner lip sync. Use **5–12 words 
 - Risky: extreme close-up of lips (exposes artifacts), side profile, wide shot with a tiny face (too little detail), low-angle, fast handheld, talking while turning away.
 
 ### Element quality for talking characters
-Reference images should be: front-facing + a 3/4 angle, neutral/relaxed mouth, good lighting, sharp eyes and mouth, no heavy lip shadows, no sunglasses, no hair over the mouth, no extreme smile. For voice binding use clean audio: quiet room, no music, no reverb, no background noise, normal pace, neutral consistent tone.
+Reference images should be: front-facing + a 3/4 angle, neutral/relaxed mouth, good lighting, sharp eyes and mouth, no heavy lip shadows, no sunglasses, no hair over the mouth, no extreme smile. Best results use up to four reference images — front, side, back, and a detail shot — so Kling doesn't have to guess unseen angles; a single photo forces the model to invent the rest. For voice binding use clean audio: quiet room, no music, no reverb, no background noise, normal pace, neutral consistent tone.
+
+### Facial occlusion recovery
+Kling 3.0 Omni restores facial detail correctly once a brief occlusion clears (a hat brim, a hand, walking behind an object) rather than glitching — you don't need to avoid occlusion entirely. Reinforce it explicitly when the shot calls for it: "the face returns to identical detail immediately after the [hat/hand/object] clears."
 
 ### Mouth-stability vocabulary
 - Helpful phrases: small natural mouth movements, subtle lip movement, stable jawline, relaxed cheeks, natural lip sync, clear syllable timing, controlled facial expression, minimal head movement, head remains steady, front-facing close-up, locked-off camera, soft even face lighting.
