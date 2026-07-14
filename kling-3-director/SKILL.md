@@ -34,6 +34,8 @@ The skill states which path to use at the top of every prompt output.
 
 **Elements** are uploaded through the Element Library UI, not described in the prompt. The @tag (@Tom, @Jane) references the uploaded element. Up to 7 elements/reference images (or up to 4 if a video reference is included), each @tag costs 37 characters. Prompt budget: 2,500 characters total. Elements can also be created from a 3–8s video clip of a character, which extracts both appearance and voice — binding a consistent voice to the Element for dialogue shots.
 
+Elements aren't exclusive to Elements mode — they can also drive Image-to-video generation directly (upload reference images as Elements, then animate them). And voice-bound characters or native multi-shot storyboarding aren't just a tag-formatting choice: those capabilities come from the Video 3.0 Omni model specifically, which extends the base Elements feature with voice extraction from a reference video and built-in storyboard controls.
+
 ## Step 1 — Open with a direction question
 
 Before drafting any prompt, lead with ONE question about creative direction.
@@ -71,7 +73,7 @@ Before drafting any prompt, lead with ONE question about creative direction.
 |------|-----|----------|
 | Text-to-video | Direct the whole scene from scratch | cinematic concepts, ads, fantasy/sci-fi |
 | Image-to-video | Animate what already exists | product/ecommerce, preserving a real face/logo |
-| Elements (reference) | Lock identity/consistency | recurring characters, mascots, products |
+| Elements (reference) | Lock identity/consistency | recurring characters, mascots, products — can layer onto Image-to-video |
 | Custom Multi-Shot | Control story, timing, edits | 10–15s ads, short films, dialogue scenes |
 | Start + End frame | Planned transitions | product reveals, before/after, loops |
 
@@ -99,6 +101,8 @@ Mode decides *what tools* the prompt uses. Format decides *how the prompt reads*
 | **2. Compact formula** — one structured sentence | Image-to-video, single shot with one Element | Single field |
 | **3. Labeled shot blocks** | Multi-shot, commercial, identity-critical | Custom Multi-Shot |
 | **4. Omni @tag system** | Multiple Elements, dialogue, voice-bound characters | Custom Multi-Shot |
+
+Omni @tag format assumes the Video 3.0 Omni model — its voice-binding and storyboard controls aren't available on plain Video 3.0.
 
 **State the path at the top of every prompt output:**
 - Single shot → *"Paste into the single prompt field."*
