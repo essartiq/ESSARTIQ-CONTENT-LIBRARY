@@ -18,6 +18,14 @@ Structure every full prompt in this order:
 5. Lighting / style
 6. Audio / dialogue
 7. "No..." negative terms (relevant artifacts only)
+## Lighting vocabulary — a shared starting point, not a strict rule
+Every mode's "Lighting:" line can pull from this vocabulary instead of reinventing it per mode — treat it as a guide to adapt, not a fixed formula. Real scenes won't always fit neatly; adjust for what the shot actually needs.
+- Source + color temperature — name the source and its rough warmth so Kling doesn't guess: warm candlelight (~1,900K), warm tungsten/golden hour (~3,200-3,500K), neutral daylight (~5,600K), cool overcast/blue sky (~6,500K+). Prefer one dominant source per shot — mixing two strong temperatures usually reads as a clash rather than a look, unless the contrast is intentional and called out explicitly.
+- Direction — state where the light comes from when it matters: side-lit from camera left, backlit rim/halo, top-down, front-fill. Direction shapes mood more than intensity does.
+- Intensity + contrast — subtle / moderate / intense, paired with a contrast note ("soft gradient between highlight and shadow" for calm, "hard-edged shadow, high contrast" for drama). Three-point setups often default to a 2:1 key-to-fill ratio; push toward 3:1+ for deliberate drama.
+- Protect detail — add "visible shadow detail" or "soft highlight rolloff" when the scene risks crushed blacks or blown highlights.
+- Avoid self-contradiction — pairing soft/diffused with razor-sharp/hard-edged in the same line tends to destabilize the shot.
+Compact pattern (optional, not mandatory): `[source + CCT], [direction], [intensity + contrast], [detail-protection phrase if needed]` — e.g. "warm tungsten key, side-lit from camera left, moderate intensity with soft highlight rolloff." Use as much or as little of this as the shot calls for.
 
 ## Constraint words over aesthetic words
 Aesthetic words ("cinematic, premium, beautiful, dramatic") shape the look; **constraint words make the model behave** and matter more: locked-off camera, full body visible, logo remains centered, one speaker per shot, head remains mostly still, camera moves slowly, product does not change shape, same outfit across all shots. Always include constraints, not just adjectives.
